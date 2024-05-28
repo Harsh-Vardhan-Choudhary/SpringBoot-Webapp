@@ -24,6 +24,9 @@ public class LoginController {
     public String gotoWelcomePage(@RequestParam String name, @RequestParam String password, ModelMap model) {
         if(authenticationService.authenticate(name, password)) {
             model.put("name", name);
+            //authentication
+            //name - harsh
+            //password - dummy
             return "welcome";
         }
         else {

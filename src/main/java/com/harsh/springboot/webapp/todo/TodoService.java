@@ -1,12 +1,17 @@
 package com.harsh.springboot.webapp.todo;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
+@Service
 //this the static list of todo (step by step appoach to databases)
 public class TodoService {
+
+    private static List<Todo> todos = new ArrayList<>();
     
-    private static List<Todo> todos;
     static
     {
         todos.add(new Todo(1, "harsh", "learn AWS", LocalDate.now().plusYears(1), false));
@@ -14,8 +19,7 @@ public class TodoService {
         todos.add(new Todo(2, "harsh", "learn Full Stack", LocalDate.now().plusYears(1), false));
     }
 
-    public List<Todo> findByUsername(String username)
-    {
-        return todos;
-    }
+    public List<Todo> findByUsername(String username){
+		return todos;
+	}
 }
