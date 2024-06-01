@@ -43,8 +43,8 @@
 			<artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.glassfish.web</groupId>
 			<artifactId>jakarta.servlet.jsp.jstl</artifactId>
+			<groupId>org.glassfish.web</groupId>
 		</dependency>
 		<dependency>
 			<groupId>org.webjars</groupId>
