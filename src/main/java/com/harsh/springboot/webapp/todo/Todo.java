@@ -2,6 +2,8 @@ package com.harsh.springboot.webapp.todo;
 
 import java.time.LocalDate;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import jakarta.validation.constraints.Size;
 
 //DataBase (MysQL)
@@ -14,6 +16,7 @@ public class Todo {
     @Size(min = 10, message = "Enter at least 10 characters")
     private String description;
     
+    @DateTimeFormat(pattern = "yyyy/MM/dd")
     private LocalDate targetDate;
     private boolean done;
 
