@@ -2,13 +2,18 @@ package com.harsh.springboot.webapp.todo;
 
 import java.time.LocalDate;
 
+import jakarta.validation.constraints.Size;
+
 //DataBase (MysQL)
 //static list of todo -> Databases(H2, mysql)
 
 public class Todo {
     private int id;
     private String username;
+
+    @Size(min = 10, message = "Enter at least 10 characters")
     private String description;
+    
     private LocalDate targetDate;
     private boolean done;
 

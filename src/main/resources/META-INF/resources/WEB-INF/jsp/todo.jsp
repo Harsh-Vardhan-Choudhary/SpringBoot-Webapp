@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <html>
     <head>
@@ -10,11 +11,13 @@
             <h1>Enter Todo Details</details></h1>
         </div>
         <div>
-            <form method="post">
-                <!--Any validation provided within html or javascript file (FrontEnd Validation) can be overwritten easily by hacker-->
-                Description : <input type="text" name="description" required="required">
+            <form:form method="post" modelAttribute = "todo">
+                Description: <form:input type="text" path="description" required="required"/>
+                <form:errors path="description" cssClass="text-warning"/>
+				<form:input type="hidden" path="id"/>
+				<form:input type="hidden" path="done"/>
                 <button type="submit" class="btn btn-success">Submit</button>
-            </form>
+            </form:form>
         </div>
         <script src="webjars/bootstrap/5.1.3/js/bootstrap.min.js"></script>
 		<script src="webjars/jquery/3.6.0/jquery.min.js"></script>
