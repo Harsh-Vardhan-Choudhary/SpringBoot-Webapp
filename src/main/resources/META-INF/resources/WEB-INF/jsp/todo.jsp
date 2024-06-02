@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+
 <html>
     <head>
         <link href="webjars/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet" >
@@ -9,7 +11,8 @@
         </div>
         <div>
             <form method="post">
-                Description : <input type="text" name="description">
+                <!--Any validation provided within html or javascript file (FrontEnd Validation) can be overwritten easily by hacker-->
+                Description : <input type="text" name="description" required="required">
                 <button type="submit" class="btn btn-success">Submit</button>
             </form>
         </div>
