@@ -3,6 +3,7 @@ package com.harsh.springboot.webapp.todo;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 import org.springframework.stereotype.Service;
 
@@ -15,7 +16,7 @@ public class TodoService {
     
     static
     {
-        todos.add(new Todo(todosCount, "harsh", "learn AWS", LocalDate.now().plusYears(1), false));
+        todos.add(new Todo(todosCount++, "harsh", "learn AWS", LocalDate.now().plusYears(1), false));
         todos.add(new Todo(todosCount++, "harsh", "learn DEVOPS", LocalDate.now().plusYears(2), false));
         todos.add(new Todo(todosCount++, "harsh", "learn Full Stack", LocalDate.now().plusYears(1), false));
     }
@@ -29,5 +30,18 @@ public class TodoService {
     {
         Todo todo = new Todo(todosCount++, username, description, targetDate, done);
         todos.add(todo);
+    }
+
+    public static void deleteByID(int id)
+    {
+        //todo.getID == id
+
+        //using lamda function(Functional Programming)
+        //todo -> todo.getId() == id;
+        //explaination : todo for every todo if todo.getId() is equal to id
+
+        Predicate<? super Todo> predicate = todo -> todo.getId() == id;
+        todos.removeIf(predicate);
+        //todos.removeIf(todo -> todo.getId() == id);
     }
 }
