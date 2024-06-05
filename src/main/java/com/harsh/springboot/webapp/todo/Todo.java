@@ -4,12 +4,29 @@ import java.time.LocalDate;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.Size;
 
 //DataBase (MysQL)
 //static list of todo -> Databases(H2, mysql)
 
-public class Todo {
+//Bean -> Database
+
+@Entity
+public class Todo 
+{
+
+    //default constructor
+    public Todo()
+    {
+        
+    }
+
+    @Id         //when we are having an entity it is compulsary to define a id (primary key)
+    @GeneratedValue
     private int id;
     private String username;
 
@@ -73,8 +90,4 @@ public class Todo {
         return "Todo [id=" + id + ", username=" + username + ", description=" + description + ", targetDate="
                 + targetDate + ", done=" + done + "]";
     }
-
-    
-
-    
 }
